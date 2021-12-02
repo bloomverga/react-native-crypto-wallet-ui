@@ -5,6 +5,7 @@
   "scripts": {
     "android": "react-native run-android",
     "ios": "react-native run-ios",
+    "link": "react-native link",
     "start": "react-native start",
     "clean": "react-native clean-project-auto",
     "test": "jest",
@@ -19,6 +20,7 @@
     "react-native": "0.64.1",
     "react-native-clean-project": "^3.6.7",
     "react-native-gesture-handler": "^1.10.3",
+    "react-native-linear-gradient": "^2.5.6",
     "react-native-reanimated": "^2.2.0",
     "react-native-safe-area-context": "^3.2.0",
     "react-native-screens": "^3.3.0",
