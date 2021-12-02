@@ -10,6 +10,7 @@ import {
     ImageBackground
 } from 'react-native';
 
+import { PriceAlert } from "../components"
 import { dummyData, COLORS, SIZES, FONTS, icons, images } from '../constants';
 const Home = ({ navigation  }) => {
     const [trending, setTrending] = React.useState(dummyData.trendingCurrencies)
@@ -55,7 +56,7 @@ const Home = ({ navigation  }) => {
                 </View>
             </TouchableOpacity>
         )
-        
+
         return(
             <View
                 style={{
@@ -159,10 +160,18 @@ const Home = ({ navigation  }) => {
             </View>
         )
     }
+
+    function renderAlert() {
+        return (
+            <PriceAlert/> 
+        )
+    }
+    
     return (
         <ScrollView>
             <View style={{ flex: 1, paddingBottom: 130 }}>
                 {renderHeader()}
+                {renderAlert()}
             </View>
         </ScrollView>
     )
