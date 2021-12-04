@@ -312,6 +312,24 @@ const CryptoDetail = ({ route, navigation }) => {
             </View>
         )
     }
+
+    function renderAbout() {
+        return (
+            <View
+                style={{
+                    marginTop: SIZES.padding,
+                    marginHorizontal: SIZES.radius,
+                    padding: SIZES.radius,
+                    borderRadius: SIZES.radius,
+                    backgroundColor: COLORS.white,
+                    ...styles.shadow
+                }}
+            >
+                <Text style={{ ...FONTS.h3}}>About {selectedCurrency?.currency} </Text>
+                <Text style={{ marginTop: SIZES.base, ...FONTS.body3}}>{selectedCurrency?.description} </Text>
+            </View>
+        )
+    }
     return (
         <SafeAreaView
             style={{
@@ -325,11 +343,12 @@ const CryptoDetail = ({ route, navigation }) => {
             <ScrollView
                 style={{
                     flex: 1,
-                    paddingBottom: SIZES.padding
+                    paddingBottom: 130
                 }}
             >
                 {renderChart()}
                 {renderBuy()}
+                {renderAbout()}
             </ScrollView>
         </SafeAreaView>
     )
