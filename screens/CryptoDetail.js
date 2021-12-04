@@ -295,6 +295,16 @@ const CryptoDetail = ({ route, navigation }) => {
                                     ...FONTS.body4
                                 }}
                             >{selectedCurrency?.wallet.crytpo} {selectedCurrency?.code} </Text>
+
+                            <Image
+                                source={icon.right_arrow}
+                                resizeMode= "cover"
+                                style={{
+                                    width: 20,
+                                    height: 20,
+                                    tintColor: COLORS.gray
+                                }}
+                            />
                         </View>
                     </View>
                 </View>
