@@ -243,6 +243,64 @@ const CryptoDetail = ({ route, navigation }) => {
             </View>
         )
     }
+
+    function renderBuy() {
+        return (
+            <View
+              style={{
+                  marginTop: SIZES.padding,
+                  marginHorizontal: SIZES.radius,
+                  padding: SIZES.radius,
+                  borderRadius: SIZES.radius,
+                  backgroundColor: COLORS.white,
+                  ...styles.shadow
+              }}
+            >
+                <View
+                    style={{
+                        flexDirection: 'row',
+                        alignItems: 'center',
+                        marginBottom: SIZES.radius
+                    }}
+                >
+                    {/* Currency */}
+                    <View
+                        style={{
+                            flex: 1
+                        }}
+                    >
+                        <CurrencyLabel
+                            icon={selectedCurrency?.image}
+                            currency={`${selectedCurrency?.currency} Wallet`}
+                            code={selectedCurrency?.code}
+                        />
+                    </View>
+                    {/* Amount */}
+                    <View
+                        style={{
+                            flexDirection: 'row',
+                            alignItems: 'center',
+                        }}
+                    >
+                        <View style={{ marginLeft: SIZES.base }}>
+                            <Text style={{
+                                ...FONTS.h3
+                            }}
+                            >
+                                ${selectedCurrency?.wallet.value}</Text>
+                            <Text
+                                style={{
+                                    textAlign: 'right',
+                                    color: COLORS.gray,
+                                    ...FONTS.body4
+                                }}
+                            >{selectedCurrency?.wallet.crytpo} {selectedCurrency?.code} </Text>
+                        </View>
+                    </View>
+                </View>
+            </View>
+        )
+    }
     return (
         <SafeAreaView
             style={{
@@ -260,6 +318,7 @@ const CryptoDetail = ({ route, navigation }) => {
                 }}
             >
                 {renderChart()}
+                {renderBuy()}
             </ScrollView>
         </SafeAreaView>
     )
