@@ -308,7 +308,7 @@ const CryptoDetail = ({ route, navigation }) => {
                 </View>
                 <TextButton
                     label="Buy"
-                    onPress={() => navigation.navigate("Transaction", {currency: selectedCurrency.currency})}
+                    onPress={() => navigation.navigate("Transaction", {currency: selectedCurrency})}
                 />
             </View>
         )

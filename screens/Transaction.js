@@ -1,15 +1,69 @@
 import React from 'react';
 import {
     StyleSheet,
+    SafeAreaView,
     View,
-    Text
+    Text,
+    ScrollView
 } from 'react-native';
 
-const Transaction = () => {
+import { HeaderBar, CurrencyLabel, TextButton, TransactionHistory} from "../components"
+
+import { dummyData, COLORS, SIZES, FONTS } from "../constants"
+
+const Transaction = ({ route }) => {
+
+    const [selectedCurrency, setSelectedCurrency ] = React.useState(null)
+
+    React.useEffect(() => {
+        const { currency } = route.params
+        setSelectedCurrency(currency)
+    }, [])
+
+    function renderTrade() {
+        console.log("selectedCurrency ", selectedCurrency)
+        return(
+            <View
+                style={{
+                    marginTop: SIZES.padding,
+                    marginHorizontal: SIZES.padding,
+                    padding: SIZES.padding,
+                    borderRadius: SIZES.radius,
+                    backgroundColor: COLORS.white,
+                    ...styles.shadow
+                }}
+            >
+                <CurrencyLabel
+                    icon={selectedCurrency?.image}
+                    currency={selectedCurrency?.currency}
+                    code={selectedCurrency?.code}
+                />
+                <View
+                    style={{
+                        marginTop: SIZES.padding,
+                        marginBottom: SIZES.padding * 1.5,
+                        alignItems: 'center',
+                        justifyContent: 'center'
+                    }}
+                >
+                    <Text style={{...FONTS.h2}}>{selectedCurrency?.wallet.crypto} {selectedCurrency?.code}</Text>
+                    <Text style={{ color: COLORS.gray, ...FONTS.body4 }}>${selectedCurrency?.wallet.value}</Text>
+                </View>
+            </View>
+        )
+    }
     return (
-        <View style={styles.container}>
-            <Text>Transaction</Text>
-        </View>
+        <SafeAreaView
+            style={{ flex: 1 }}
+        >
+            <HeaderBar right={false}/>
+
+            <ScrollView>
+                <View style={{ flex: 1, paddingBottom: SIZES.padding }}>
+                    {renderTrade()}
+                </View>
+            </ScrollView>
+        </SafeAreaView>
     )
 }
 
