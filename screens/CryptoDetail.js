@@ -282,11 +282,8 @@ const CryptoDetail = ({ route, navigation }) => {
                             alignItems: 'center',
                         }}
                     >
-                        <View style={{ marginLeft: SIZES.base }}>
-                            <Text style={{
-                                ...FONTS.h3
-                            }}
-                            >
+                        <View style={{ marginRight: SIZES.base }}>
+                            <Text style={{...FONTS.h3}}>
                                 ${selectedCurrency?.wallet.value}</Text>
                             <Text
                                 style={{
@@ -296,18 +293,22 @@ const CryptoDetail = ({ route, navigation }) => {
                                 }}
                             >{selectedCurrency?.wallet.crytpo} {selectedCurrency?.code} </Text>
 
-                            <Image
-                                source={icon.right_arrow}
-                                resizeMode= "cover"
-                                style={{
-                                    width: 20,
-                                    height: 20,
-                                    tintColor: COLORS.gray
-                                }}
-                            />
                         </View>
+                        <Image
+                            source={icons.right_arrow}
+                            resizeMode= "cover"
+                            style={{
+                                width: 20,
+                                height: 20,
+                                tintColor: COLORS.gray
+                            }}
+                        />
                     </View>
                 </View>
+                <TextButton
+                    label="Buy"
+                    onPress={() => navigation.navigate("Transaction", {currency: selectedCurrency.currency})}
+                />
             </View>
         )
     }
