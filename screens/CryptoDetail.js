@@ -14,7 +14,7 @@ import {VictoryScatter, VictoryLine, VictoryChart, VictoryAxis } from 'victory-n
 
 import { VictoryCustomTheme } from '../styles'
 
-import { HeaderBar, CurrencyLabel, TextButton } from '../components';
+import { HeaderBar, CurrencyLabel, TextButton, PriceAlert } from '../components';
 
 import { dummyData, COLORS, SIZES, FONTS, icons} from '../constants'
 
@@ -284,7 +284,8 @@ const CryptoDetail = ({ route, navigation }) => {
                     >
                         <View style={{ marginRight: SIZES.base }}>
                             <Text style={{...FONTS.h3}}>
-                                ${selectedCurrency?.wallet.value}</Text>
+                                ${selectedCurrency?.wallet.value}
+                            </Text>
                             <Text
                                 style={{
                                     textAlign: 'right',
@@ -349,6 +350,12 @@ const CryptoDetail = ({ route, navigation }) => {
                 {renderChart()}
                 {renderBuy()}
                 {renderAbout()}
+                <PriceAlert
+                    customContainerStyle={{
+                        marginTop: SIZES.padding,
+                        marginHorizontal: SIZES.radius
+                    }}
+                />
             </ScrollView>
         </SafeAreaView>
     )
