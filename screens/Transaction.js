@@ -49,6 +49,10 @@ const Transaction = ({ route }) => {
                     <Text style={{...FONTS.h2}}>{selectedCurrency?.wallet.crypto} {selectedCurrency?.code}</Text>
                     <Text style={{ color: COLORS.gray, ...FONTS.body4 }}>${selectedCurrency?.wallet.value}</Text>
                 </View>
+                <TextButton
+                    label="Trade"
+                    onPress={() => console.log("Trade")}
+                />
             </View>
         )
     }
