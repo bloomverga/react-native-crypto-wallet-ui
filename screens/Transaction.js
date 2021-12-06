@@ -56,6 +56,18 @@ const Transaction = ({ route }) => {
             </View>
         )
     }
+
+    function renderTransactionHistory(){
+        return (
+            <TransactionHistory
+                customContainerStyle={{
+                    ...styles.shadow
+                }}
+                history={selectedCurrency?.transactionHistory}
+            />
+        )
+    }
+
     return (
         <SafeAreaView
             style={{ flex: 1 }}
@@ -65,6 +77,7 @@ const Transaction = ({ route }) => {
             <ScrollView>
                 <View style={{ flex: 1, paddingBottom: SIZES.padding }}>
                     {renderTrade()}
+                    {renderTransactionHistory()}
                 </View>
             </ScrollView>
         </SafeAreaView>
