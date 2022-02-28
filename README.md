@@ -1,4 +1,4 @@
-# React Native Crypto Wallet
+# React Native Crypto Wallet UI
 Sample crypto wallet mobile app built with react native for learning purpose.
 
 ## Preview
